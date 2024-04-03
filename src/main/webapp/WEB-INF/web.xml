@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <!-- Login Servlet -->
+    <servlet>
+        <servlet-name>LoginUsr</servlet-name>
+        <servlet-class>org.example.compras.LoginUsr</servlet-class>
+        <init-param>
+            <param-name>Leandro</param-name>
+            <param-value>BackInBlack1980</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Camila</param-name>
+            <param-value>LetThereBeRock1977</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Diego</param-name>
+            <param-value>Powerage1978</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginUsr</servlet-name>
+        <url-pattern>/loginusr</url-pattern>
+    </servlet-mapping>
+
+    <!-- Producto Servlet -->
+    <servlet>
+        <servlet-name>Producto</servlet-name>
+        <servlet-class>org.example.compras.Producto</servlet-class>
+        <init-param>
+            <param-name>Chocolate</param-name>
+            <param-value>3000</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Helado</param-name>
+            <param-value>5000</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Chicle</param-name>
+            <param-value>500</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Producto</servlet-name>
+        <url-pattern>/productos</url-pattern>
+    </servlet-mapping>
+
+    <!-- Facturar Servlet -->
+    <servlet>
+        <servlet-name>Facturar</servlet-name>
+        <servlet-class>org.example.compras.Facturar</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Facturar</servlet-name>
+        <url-pattern>/facturar</url-pattern>
+    </servlet-mapping>
+</web-app>
