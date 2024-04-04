@@ -4,6 +4,7 @@ public class Product {
     private String name;
     private double price;
     private int amount;
+
     private double totalPrice;
 
     // Constructor
@@ -37,5 +38,13 @@ public class Product {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

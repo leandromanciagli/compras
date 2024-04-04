@@ -7,7 +7,7 @@
 <body>
 <h1>¡Bienvenid@ al sistema de compras!</h1>
 <h5>Por favor, identifíquese</h5>
-<form action="http://localhost:8080/compras_war_exploded/loginusr" method="POST">
+<form action="loginusr" method="POST">
     <label for="name">Apellido y nombre: </label>
     <input type="text" name="name" id="name" value="Leandro Manciagli">
     <br><br>

@@ -15,7 +15,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 
-public class LoginUsr extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private Hashtable<String, String> usersAndPasswords;
 
@@ -44,10 +44,10 @@ public class LoginUsr extends HttpServlet {
             session.setAttribute("password", password);
             session.setAttribute("products", new Hashtable<String, Product>());
             // Se redirecciona al servlet de productos
-            response.sendRedirect("/compras_war_exploded/productos");
+            response.sendRedirect("/productos");
         } else {
             String responseTitle = "¡Upss!";
-            String responseMessage = "El usuario o contraseña ingesados son inválidos. Por favor, intente nuevamente <a href='http://localhost:8080/compras_war_exploded'>aquí</a>";
+            String responseMessage = "El usuario o contraseña ingesados son inválidos. Por favor, intente nuevamente <a href='/'>aquí</a>";
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.println("<HTML>");
