@@ -19,12 +19,12 @@ public class FacturarServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
         out.println("<html>");
-        out.println("<style>table, th, td { border:1px solid black; }</style>");
+        out.println("<style>table, th, td { border:1px solid black; min-width:200px; }</style>");
         out.println("<head><title>Carrito de compras</title></head>");
         out.println("<body>");
         out.println("<h1>Carrito de compras</h1>");
         out.println("<table style='width:30%'>");
-        out.println("<tr><th>Nombre</th><th>Cantidad a comprar</th><th>Precio total</th></tr>");
+        out.println("<tr><th>Nombre</th><th>Precio unitario</th><th>Cantidad a comprar</th><th>Precio total</th></tr>");
         Hashtable<String, Product> products = (Hashtable<String, Product>)getServletContext().getAttribute("products");
         double totalGeneral = 0.0;
         HttpSession session = request.getSession();
@@ -36,6 +36,7 @@ public class FacturarServlet extends HttpServlet {
             int productAmount = Integer.parseInt(request.getParameter(productName));
             if (productAmount > 0) {
                 double productTotalPrice = productPrice * productAmount;
+                totalGeneral = totalGeneral + productTotalPrice;
                 if (userProducts.containsKey(productName)) {
                     userProducts.get(productName).setAmount(productAmount);
                     userProducts.get(productName).setTotalPrice(productTotalPrice);
@@ -43,16 +44,19 @@ public class FacturarServlet extends HttpServlet {
                     Product product = new Product(productName, productPrice, productAmount, productTotalPrice);
                     userProducts.put(productName, product);
                 }
+                out.println("<tr>" +
+                        "<td>" + userProducts.get(productName).getName() + "</td>" +
+                        "<td><center>$ " + userProducts.get(productName).getPrice() + "</center></td>" +
+                        "<td><center>" + userProducts.get(productName).getAmount() + " U.</center></td>" +
+                        "<td><center>$ " + userProducts.get(productName).getTotalPrice() + "</center></td>" +
+                        "</tr>");
+            } else if (userProducts.containsKey(productName)) {
+                userProducts.remove(productName);
+                products.get(productName).setAmount(0);
             }
-            out.println("<tr>" +
-                    "<td>" + userProducts.get(productName).getName() + "</td>" +
-                    "<td><center>" + products.get(productName).getPrice() + "</center></td>" +
-                    "<td><center>" + userProducts.get(productName).getAmount() + "</center></td>" +
-                    "<td><center>" + userProducts.get(productName).getTotalPrice() + "</center></td>" +
-                    "</tr>");
-        }
 
-        out.println("<tr><td>Total general</td><td>"+ totalGeneral +"</td></tr>");
+        }
+        out.println("<tr><td>Total general</td><td></td><td></td><td><center>$ "+ totalGeneral +"</center></td></tr>");
         out.println("</table>");
         out.println("<a href='productos'>Seguir comprando</a>");
         out.println("<a href='terminarSesion'>Salir</a>");

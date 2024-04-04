@@ -42,6 +42,18 @@
             <param-name>Chicle</param-name>
             <param-value>500</param-value>
         </init-param>
+        <init-param>
+            <param-name>Alfajor</param-name>
+            <param-value>1500</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Galletitas</param-name>
+            <param-value>850</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Caramelos</param-name>
+            <param-value>50</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>Producto</servlet-name>
@@ -56,5 +68,15 @@
     <servlet-mapping>
         <servlet-name>Facturar</servlet-name>
         <url-pattern>/facturar</url-pattern>
+    </servlet-mapping>
+
+    <!-- Facturar Servlet -->
+    <servlet>
+        <servlet-name>TerminarSesion</servlet-name>
+        <servlet-class>org.example.compras.TerminarSesionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TerminarSesion</servlet-name>
+        <url-pattern>/terminarSesion</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -34,7 +34,7 @@ public class ProductServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
         out.println("<html>");
-        out.println("<style>table, th, td { border:1px solid black; }</style>");
+        out.println("<style>table, th, td { border:1px solid black; min-width:200px; }</style>");
         out.println("<head><title>Comprar golosinas</title></head>");
         out.println("<body>");
         out.println("<h1>Seleccione los productos</h1>");
@@ -49,7 +49,7 @@ public class ProductServlet extends HttpServlet {
             }
             out.println("<tr>" +
                     "<td>" + products.get(i).getName() + "</td>" +
-                    "<td><center>" + products.get(i).getPrice() + "</center></td>" +
+                    "<td><center>$ " + products.get(i).getPrice() + "</center></td>" +
                     "<td><center><input type='number' name='"+i+"' value='"+products.get(i).getAmount()+"' /></center></td>" +
                     "</tr>");
         }

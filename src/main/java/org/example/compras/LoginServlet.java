@@ -42,9 +42,9 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("postalCode", postalCode);
             session.setAttribute("user", user);
             session.setAttribute("password", password);
-            session.setAttribute("products", new Hashtable<String, Product>());
+            session.setAttribute("userProducts", new Hashtable<String, Product>());
             // Se redirecciona al servlet de productos
-            response.sendRedirect("/productos");
+            response.sendRedirect("http://localhost:8080/compras/productos");
         } else {
             String responseTitle = "¡Upss!";
             String responseMessage = "El usuario o contraseña ingesados son inválidos. Por favor, intente nuevamente <a href='/'>aquí</a>";
