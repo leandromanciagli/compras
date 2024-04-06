@@ -6,7 +6,7 @@
 
     <!-- Login Servlet -->
     <servlet>
-        <servlet-name>LoginUsr</servlet-name>
+        <servlet-name>LoginServlet</servlet-name>
         <servlet-class>org.example.compras.LoginServlet</servlet-class>
         <init-param>
             <param-name>Leandro</param-name>
@@ -22,8 +22,8 @@
         </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginUsr</servlet-name>
-        <url-pattern>/loginusr</url-pattern>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
     <!-- Producto Servlet -->

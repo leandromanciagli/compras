@@ -32,7 +32,7 @@ public class ProductServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter out=response.getWriter();
+        PrintWriter out = response.getWriter();
         out.println("<html>");
         out.println("<style>table, th, td { border:1px solid black; min-width:200px; }</style>");
         out.println("<head><title>Comprar golosinas</title></head>");
@@ -41,8 +41,8 @@ public class ProductServlet extends HttpServlet {
         out.println("<form action='facturar' method='GET'>");
         out.println("<table style='width:30%'>");
         out.println("<tr><th>Nombre</th><th>Precio unitario</th><th>Cantidad a comprar</th></tr>");
-        HttpSession session = request.getSession();
-        Hashtable<String, Product> userProducts = (Hashtable<String, Product>)session.getAttribute("userProducts");
+        session = request.getSession();
+        Hashtable<String, Product> userProducts = (Hashtable<String, Product>) session.getAttribute("userProducts");
         for (String i : products.keySet()) {
             if (userProducts.containsKey(i)) {
                 products.get(i).setAmount(userProducts.get(i).getAmount());
@@ -50,7 +50,7 @@ public class ProductServlet extends HttpServlet {
             out.println("<tr>" +
                     "<td>" + products.get(i).getName() + "</td>" +
                     "<td><center>$ " + products.get(i).getPrice() + "</center></td>" +
-                    "<td><center><input type='number' name='"+i+"' value='"+products.get(i).getAmount()+"' /></center></td>" +
+                    "<td><center><input type='number' name='" + i + "' value='" + products.get(i).getAmount() + "' /></center></td>" +
                     "</tr>");
         }
         out.println("</table>");
