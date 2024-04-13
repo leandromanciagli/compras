@@ -4,10 +4,23 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
 
+    <context-param>
+        <param-name>stock</param-name>
+        <param-value>/WEB-INF/stock.txt</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.example.compras.mislisteners.InicializaStockListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.example.compras.mislisteners.ResetProductAmountsListener</listener-class>
+    </listener>
+
     <!-- Login Servlet -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>org.example.compras.LoginServlet</servlet-class>
+        <servlet-class>org.example.compras.misservlets.LoginServlet</servlet-class>
         <init-param>
             <param-name>Leandro</param-name>
             <param-value>BackInBlack1980</param-value>
@@ -29,7 +42,7 @@
     <!-- Producto Servlet -->
     <servlet>
         <servlet-name>Producto</servlet-name>
-        <servlet-class>org.example.compras.ProductServlet</servlet-class>
+        <servlet-class>org.example.compras.misservlets.ProductServlet</servlet-class>
         <init-param>
             <param-name>Chocolate</param-name>
             <param-value>3000</param-value>
@@ -63,7 +76,7 @@
     <!-- Facturar Servlet -->
     <servlet>
         <servlet-name>Facturar</servlet-name>
-        <servlet-class>org.example.compras.FacturarServlet</servlet-class>
+        <servlet-class>org.example.compras.misservlets.FacturarServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Facturar</servlet-name>
@@ -73,7 +86,7 @@
     <!-- Facturar Servlet -->
     <servlet>
         <servlet-name>TerminarSesion</servlet-name>
-        <servlet-class>org.example.compras.TerminarSesionServlet</servlet-class>
+        <servlet-class>org.example.compras.misservlets.TerminarSesionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TerminarSesion</servlet-name>

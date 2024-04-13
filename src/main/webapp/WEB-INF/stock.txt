@@ -1,0 +1,11 @@
+Alfajor,50.00
+Bombones,50.00
+Caramelos,0.10
+Chocolatines,1.25
+Chupetines,0.90
+Chicles,0.05
+Confites,5.00
+Galletitas,100.00
+Gomitas,1.20
+Helado,100.00
+Pastillas,1.00

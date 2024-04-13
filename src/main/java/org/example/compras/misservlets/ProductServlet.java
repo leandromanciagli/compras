@@ -1,4 +1,4 @@
-package org.example.compras;
+package org.example.compras.misservlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,22 +15,13 @@ import org.example.compras.model.Product;
 
 
 public class ProductServlet extends HttpServlet {
-    private Hashtable<String, Product> products;
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        products = new Hashtable<>();
-        Enumeration<String> initParameterNames = config.getInitParameterNames();
-        while (initParameterNames.hasMoreElements()) {
-            String paramName = initParameterNames.nextElement();
-            String paramValue = config.getInitParameter(paramName);
-            Product product = new Product(paramName, Double.parseDouble(paramValue), 0, 0);
-            products.put(paramName, product);
-        }
-        getServletContext().setAttribute("products", products);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Hashtable<String, Product> products = (Hashtable<String, Product>)getServletContext().getAttribute("products");
         HttpSession session = request.getSession(false);
         if (session == null) {
             response.sendRedirect("index.jsp");

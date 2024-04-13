@@ -1,4 +1,4 @@
-package org.example.compras;
+package org.example.compras.misservlets;
 
 import java.io.IOException;
 
